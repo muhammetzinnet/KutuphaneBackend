@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using Core.DataAccess.EntitiFramework;
+using DataAccess.Abstract;
+using Entities.Concrete;
+using Entities.DTOs;
+using Microsoft.EntityFrameworkCore;
+
+namespace DataAccess.Concrete.EntityFramework
+{
+    public class EfBookDal : EfEntityRepositoryBase<Book, LibraryContext>, IBookDal
+    {
+        public List<BookDetailDto> GetBookDetails()
+        {
+            using (LibraryContext context = new LibraryContext())
+            {
+                var result = from b in context.Books
+                    join c in context.Categories on b.CategoryId equals c.CategoryId
+                    select new BookDetailDto
+                    {
+                        BookId = b.BookId,
+                        BookName = b.BookName,
+                        CategoryId = c.CategoryId,
+                        KindName = b.KindName,
+                        Author = b.Author,
+                        Publisher = b.Publisher,
+                        YearOfPrinting = b.YearOfPrinting,
+                        Description = b.Description
+                    };
+                return result.ToList();
+            }
+        }
+    }
+}
