@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
 
         [HttpGet("getbycategory")]
@@ -57,7 +57,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
 
         [HttpPost("add")]
@@ -81,7 +81,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
 
         [HttpGet("getallbylend")]
@@ -93,7 +93,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
 
         [HttpGet("getbookdetails")]
@@ -105,7 +105,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
 
         [HttpPost("delete")]

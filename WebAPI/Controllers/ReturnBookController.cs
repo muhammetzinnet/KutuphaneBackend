@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
 
         [HttpGet("getbyid")]
@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
     }
 }

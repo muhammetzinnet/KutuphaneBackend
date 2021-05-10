@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result.Success);
+            return BadRequest(result.Message);
         }
 
         [HttpGet("getallbyid")]
@@ -42,7 +42,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result.Success);
+            return BadRequest(result.Message);
         }
 
         [HttpGet("getallbook")]
@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result.Success);
+            return BadRequest(result.Message);
         }
 
         [HttpPost("add")]
