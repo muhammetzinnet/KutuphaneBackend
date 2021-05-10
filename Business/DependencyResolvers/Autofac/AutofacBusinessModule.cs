@@ -30,6 +30,15 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CategoryManager>().As<ICategoryService>().SingleInstance();
             builder.RegisterType<EfCategoryDal>().As<ICategoryDal>().SingleInstance();
 
+            builder.RegisterType<KindManager>().As<IKindService>().SingleInstance();
+            builder.RegisterType<EfKindDal>().As<IKindDal>().SingleInstance();
+
+            builder.RegisterType<LendManager>().As<ILendService>().SingleInstance();
+            builder.RegisterType<EfLendDal>().As<ILendDal>().SingleInstance();
+
+            builder.RegisterType<ReturnBookManager>().As<IReturnBookService>().SingleInstance();
+            builder.RegisterType<EfReturnBookDal>().As<IReturnBookDal>().SingleInstance();
+
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()

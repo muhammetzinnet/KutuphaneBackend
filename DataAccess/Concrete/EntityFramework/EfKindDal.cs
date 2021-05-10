@@ -12,7 +12,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfKindDal : EfEntityRepositoryBase<Kind, LibraryContext>, IKindDal
     {
-        public List<KindDetailDto> KindDetailDto(Kind kind)
+        public List<KindDetailDto> GetKindDetails(Kind kind)
         {
             using (var context = new LibraryContext())
             {
@@ -21,12 +21,13 @@ namespace DataAccess.Concrete.EntityFramework
                     select new KindDetailDto()
                     {
                         KindId = k.KindId,
-                        CategoryId = c.CategoryId,
+                        CategoryName = c.CategoryName,
                         KindName = k.KindName
                     };
 
                 return result.ToList();
             }
         }
+
     }
 }

@@ -8,5 +8,9 @@ namespace Business.ValidationRules.FluentValidation
 {
     public class LendValidator : AbstractValidator<Lend>
     {
+        public LendValidator()
+        {
+            RuleFor(l => l.LendId).Null();
+        }
     }
 }

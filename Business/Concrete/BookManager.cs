@@ -54,6 +54,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.BookDeleted);
         }
 
+        [ValidationAspect(typeof(BookValidator))]
         public IDataResult<List<Book>> GetAll()
         {
             if (DateTime.Now.Hour==22)
@@ -63,29 +64,34 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Book>>(_bookDal.GetAll(), Messages.BooksListed);
         }
 
+        [ValidationAspect(typeof(BookValidator))]
         public IDataResult<List<Book>> GetAllByCategoryId(int id)
         {
             return new SuccessDataResult<List<Book>>(_bookDal.GetAll(b => b.CategoryId == id));
         }
 
+        [ValidationAspect(typeof(BookValidator))]
         public IDataResult<List<Book>> GetAllByKind()
         {
-            return new SuccessDataResult<List<Book>>(_bookDal.GetAll());
+            return new SuccessDataResult<List<Book>>(_bookDal.GetAll(), Messages.BooksKindListed);
         }
 
+        [ValidationAspect(typeof(BookValidator))]
         public IDataResult<List<Book>> GetAllByLend()
         {
-            return new SuccessDataResult<List<Book>>(_bookDal.GetAll());
+            return new SuccessDataResult<List<Book>>(_bookDal.GetAll(), Messages.BooksLendListed);
         }
 
+        [ValidationAspect(typeof(BookValidator))]
         public IDataResult<List<BookDetailDto>> GetBookDetails()
         {
             return new SuccessDataResult<List<BookDetailDto>>(_bookDal.GetBookDetails());
         }
+
         [PerformanceAspect(5)]
         public IDataResult<Book> GetById(int bookId)
         {
-            return new SuccessDataResult<Book>(_bookDal.Get(b => b.BookId == bookId));
+            return new SuccessDataResult<Book>(_bookDal.Get(b => b.BookId == bookId), Messages.BooksIdListed);
         }
 
         [SecuredOperation("book.add, admin")]

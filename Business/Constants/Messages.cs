@@ -22,12 +22,27 @@ namespace Business.Constants
         public static string AccessTokenCreated = "Sisteme erişim oluşturuldu.";
         public static string BookDeleted = "Kitap ismi silindi";
         public static string BookUpdated = "Kitap ismi güncellendi";
-        internal static string CategoryAdded;
-        internal static string CategoryNameAlreadyExists;
-        internal static string CategoryDeleted;
-        internal static string CategoryUpdated;
-        internal static string KindAdded;
-        internal static string KindUpdated;
-        internal static string KindDeleted;
+        public static string CategoryAdded = "Yeni kategori eklendi";
+        public static string CategoryNameAlreadyExists = "Eklemek istediğiniz kategori zaten var";
+        public static string CategoryDeleted = "Kategori silindi";
+        public static string CategoryUpdated = "Mevcut katagori güncellendi";
+        public static string KindAdded = "Yeni kitap türü eklendi";
+        public static string KindUpdated = "Mevcut kitap türü güncellendi";
+        public static string KindDeleted = "Kitap türü silindi";
+        public static string KindsListed = "Kitap türü listelendi.";
+        public static string LendsListed = "Kitabın verilişine göre listelendi";
+        public static string BookLendsListed = "Kitap kişiye verilene göre listelendi.";
+        public static string ReturnBookListed = "Kitabın dönüşüne görre listelendi.";
+        public static string BooksIdListed = "Kitab ID' ye göre listelendi.";
+        public static string BooksLendListed = "Kitap kiralanmaya göre listelendi.";
+        public static string BooksKindListed = "Kitap türe göre listelendi";
+        public static string CategoryListed = "Kategori listelendi";
+        public static string CategoryNameListed = "Katagori isme göre listelendi.";
+        internal static string LendAdded;
+        internal static string LendDayCantbePast;
+        internal static string BookOnRend;
+        internal static string RentalNotComeBack;
+        internal static string LendDeleted;
+        internal static string LendUpdated;
     }
 }

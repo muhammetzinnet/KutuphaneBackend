@@ -28,7 +28,10 @@ namespace DataAccess.Concrete.EntityFramework
                         Author = b.Author,
                         Publisher = b.Publisher,
                         YearOfPrinting = b.YearOfPrinting,
-                        Description = b.Description
+                        Piece = b.Piece,
+                        Description = b.Description,
+
+                        
                     };
                 return result.ToList();
             }

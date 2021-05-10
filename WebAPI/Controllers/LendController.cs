@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using Business.Abstract;
 using Entities.Concrete;
@@ -12,31 +11,19 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class LendController : ControllerBase
     {
-        private ICategoryService _categoryService;
+        private ILendService _lendService;
 
-        public CategoriesController(ICategoryService categoryService)
+        public LendController(ILendService lendService)
         {
-            _categoryService = categoryService;
+            _lendService = lendService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            
-            var result = _categoryService.GetAll();
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result.Message);
-        }
-
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int id)
-        {
-            var result = _categoryService.GetById(id);
+            var result = _lendService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -45,10 +32,22 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbykind")]
-        public IActionResult GetByKind()
+        [HttpGet("getallbook")]
+        public IActionResult GetAllBook(Book book)
         {
-            var result = _categoryService.GetByKind();
+            var result = _lendService.GetAllBook(book);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _lendService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -58,39 +57,39 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Category category)
+        public IActionResult Add(Lend lend)
         {
-            var result = _categoryService.Add(category);
+            var result = _lendService.Add(lend);
             if (result.Success)
             {
                 return Ok(result);
             }
 
-            return BadRequest(result);
-        }
-
-        [HttpPost("update")]
-        public IActionResult Update(Category category)
-        {
-            var result = _categoryService.Update(category);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Category category)
+        public IActionResult Delete(Lend lend)
         {
-            var result = _categoryService.Delete(category);
+            var result = _lendService.Delete(lend);
             if (result.Success)
             {
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("update")]
+        public IActionResult Update(Lend lend)
+        {
+            var result = _lendService.Update(lend);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
         }
     }
 }

@@ -18,8 +18,8 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Category> Categories { get; set; }
         public DbSet<Kind> Kinds { get; set; }
         public DbSet<Lend> Lends { get; set; }
-        public DbSet<Image> Images { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ReturnBook> ReturnBooks { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     }

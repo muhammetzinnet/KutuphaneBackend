@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using Core.DataAccess.EntitiFramework;
 using DataAccess.Abstract;
@@ -11,29 +12,33 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfLendDal : EfEntityRepositoryBase<Lend, LibraryContext>, ILendDal
     {
-        public List<LendDetailDto> GetLendDetails(Lend lend)
+        public List<LendDetailDto> GetLendDetails(Expression<Func<LendDetailDto, bool>> filter = null)
         {
             using (LibraryContext context = new LibraryContext())
             {
 
 
                 var result = from l in context.Lends
-                    join u in context.Users
-                        on l.LendId equals u.Id
+                    join b in context.Books
+                        on l.BookName equals b.BookName
+                    join us in context.Users on l.UserName equals us.FirstName
+                    join r in context.ReturnBooks on l.LendDate equals r.ReturnDate
+
 
                     select new LendDetailDto()
                     {
                         LendId = l.LendId,
                         BookName = l.BookName,
-                        UserName = l.UserName,
-                        BorrowingDate = l.BorrowingDate,
-                        LendDate = l.LendDate,
+                        UserName = us.FirstName,
+                        LendDate = r.ReturnDate,
                         LendPeriod = l.LendPeriod,
-                        
+                        ReturnBookDate = r.ReturnDate,
+                        TotalDay = (l.LendDate.Day - r.ReturnDate.Day)
                     };
 
-                return result.ToList();
+                return filter==null? result.ToList(): result.Where(filter).ToList();
             }
         }
+
     }
 }

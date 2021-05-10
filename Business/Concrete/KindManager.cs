@@ -48,6 +48,8 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("kind.add, admin")]
+        [ValidationAspect(typeof(KindValidator))]
         public IResult Delete(Kind kind)
         {
             IResult result = BusinessRules.Run(CheckIfKindNameExists(kind.KindName));
@@ -59,21 +61,26 @@ namespace Business.Concrete
             return new SuccessResult(Messages.KindDeleted);
         }
 
+        [ValidationAspect(typeof(KindValidator))]
         public IDataResult<List<Kind>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Kind>>(_kindDal.GetAll(), Messages.KindsListed);
         }
 
+        [ValidationAspect(typeof(KindValidator))]
         public IDataResult<List<Kind>> GetAllBook()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Kind>>(_kindDal.GetAll(k => k.KindName == k.CategoryName));
         }
 
+        [ValidationAspect(typeof(KindValidator))]
         public IDataResult<List<Kind>> GetAllById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Kind>>(_kindDal.GetAll(k => k.KindId == id));
         }
-        
+
+        [SecuredOperation("kind.add, admin")]
+        [ValidationAspect(typeof(KindValidator))]
         public IResult Update(Kind kind)
         {
             IResult result = BusinessRules.Run(CheckIfKindNameExists(kind.KindName));

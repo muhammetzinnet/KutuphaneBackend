@@ -8,7 +8,7 @@ namespace Entities.DTOs
     public class KindDetailDto : IDto
     {
         public int KindId { get; set; }
-        public int CategoryId { get; set; }
         public string KindName { get; set; }
+        public string CategoryName { get; set; }
     }
 }

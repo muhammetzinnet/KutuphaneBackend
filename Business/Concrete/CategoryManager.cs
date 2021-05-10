@@ -44,7 +44,7 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.CategoryNameAlreadyExists);
             }
 
-            return new SuccessResult();
+            return new SuccessResult(Messages.CategoryNameListed);
         }
 
         [SecuredOperation("category.delete, admin")]
@@ -60,16 +60,19 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CategoryDeleted);
         }
 
+        [ValidationAspect(typeof(CategoryValidator))]
         public IDataResult<List<Category>> GetAll()
         {
-            return new SuccessDataResult<List<Category>>(_categoryDal.GetAll());
+            return new SuccessDataResult<List<Category>>(_categoryDal.GetAll(), Messages.CategoryListed);
         }
 
+        [ValidationAspect(typeof(CategoryValidator))]
         public IDataResult<Category> GetById(int categoryId)
         {
             return new SuccessDataResult<Category>(_categoryDal.Get(c => c.CategoryId == categoryId));
         }
 
+        [ValidationAspect(typeof(CategoryValidator))]
         public IDataResult<List<Category>> GetByKind()
         {
             return new SuccessDataResult<List<Category>>(_categoryDal.GetAll());

@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             var result = _bookService.GetAll();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result.Message);
         }
@@ -69,7 +69,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
 
         [HttpGet("getbyallkind")]
@@ -117,7 +117,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
 
         [HttpPost("update")]
@@ -129,7 +129,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
     }
 }

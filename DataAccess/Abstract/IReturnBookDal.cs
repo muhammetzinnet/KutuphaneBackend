@@ -8,8 +8,8 @@ using Entities.DTOs;
 
 namespace DataAccess.Abstract
 {
-    public interface ILendDal : IEntityRepository<Lend>
+    public interface IReturnBookDal : IEntityRepository<ReturnBook>
     {
-        List<LendDetailDto> GetLendDetails(Expression<Func<LendDetailDto, bool>> filter = null);
+        List<ReturnBookDetailDto> GetReturnBookDetails(Expression<Func<LendDetailDto, bool>> filter = null);
     }
 }

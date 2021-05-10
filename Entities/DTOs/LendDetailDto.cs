@@ -11,7 +11,8 @@ namespace Entities.DTOs
         public string BookName { get; set; }
         public string UserName { get; set; }
         public DateTime LendDate { get; set; }
-        public DateTime BorrowingDate { get; set; }
         public int LendPeriod { get; set; }
+        public int TotalDay { get; set; }
+        public DateTime ReturnBookDate { get; set; }
     }
 }

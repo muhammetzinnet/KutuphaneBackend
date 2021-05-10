@@ -8,7 +8,7 @@ namespace Entities.Concrete
     public class Kind : IEntity
     {
         public int KindId { get; set; }
-        public string CategoryName{ get; set; }
         public string KindName { get; set; }
+        public string CategoryName { get; set; }
     }
 }
