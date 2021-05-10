@@ -12,7 +12,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfKindDal : EfEntityRepositoryBase<Kind, LibraryContext>, IKindDal
     {
-        public List<KindDetailDto> GetKindDetails(Kind kind)
+        public List<KindDetailDto> GetKindDetails()
         {
             using (var context = new LibraryContext())
             {

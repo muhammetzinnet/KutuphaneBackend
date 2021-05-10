@@ -50,7 +50,7 @@ namespace Business.Concrete
             var result = _lendDal.GetAll(l => l.LendId == lend.LendId && (lend.LendDate.Day - l.LendPeriod) == 0);
             if (result.Any())
             {
-                return new ErrorResult(Messages.BookOnRend);
+                return new ErrorResult(Messages.BookOnRent);
             }
             return new SuccessResult();
         }

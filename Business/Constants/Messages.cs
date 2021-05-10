@@ -38,11 +38,11 @@ namespace Business.Constants
         public static string BooksKindListed = "Kitap türe göre listelendi";
         public static string CategoryListed = "Kategori listelendi";
         public static string CategoryNameListed = "Katagori isme göre listelendi.";
-        internal static string LendAdded;
-        internal static string LendDayCantbePast;
-        internal static string BookOnRend;
-        internal static string RentalNotComeBack;
-        internal static string LendDeleted;
-        internal static string LendUpdated;
+        public static string LendAdded = "Kitap ödünç verme eklendi.";
+        public static string LendDayCantbePast = "Kitabın geri alma günü geçmiş olabilir.";
+        public static string BookOnRent = " Kitap verildi.";
+        public static string RentalNotComeBack = "Kitap geri gelmedi.";
+        public static string LendDeleted = "Ödünç verme silindi.";
+        public static string LendUpdated = "Ödünç verme güncellendi.";
     }
 }

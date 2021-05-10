@@ -10,7 +10,7 @@ namespace DataAccess.Concrete.EntityFramework
     public class EfCategoryDal : EfEntityRepositoryBase<Category, LibraryContext>, ICategoryDal
     {
         
-        public List<CategoryDetailDto> GetCategoryDetails(Category category)
+        public List<CategoryDetailDto> GetCategoryDetails()
         {
             using (var context = new LibraryContext())
             {

@@ -7,6 +7,6 @@ namespace DataAccess.Abstract
 {
     public interface IKindDal : IEntityRepository<Kind>
     {
-        List<KindDetailDto> GetKindDetails(Kind kind);
+        List<KindDetailDto> GetKindDetails();
     }
 }
