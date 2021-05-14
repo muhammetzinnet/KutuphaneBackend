@@ -44,5 +44,8 @@ namespace Business.Constants
         public static string RentalNotComeBack = "Kitap geri gelmedi.";
         public static string LendDeleted = "Ödünç verme silindi.";
         public static string LendUpdated = "Ödünç verme güncellendi.";
+        public static string CustomerAdded = "Yeni kişi eklendi.";
+        public static string CustomerDeleted = "Kişi silindi.";
+        public static string CustomerUpdated = "Kişi güncellendi";
     }
 }

@@ -60,6 +60,11 @@ namespace DataAccess.Concrete.İnMemory
             throw new NotImplementedException();
         }
 
+        public List<BookDetailDto> GetBookDetails(Expression<Func<BookDetailDto, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Book book)
         {
             Book bookToUpdate = _books.SingleOrDefault(b => b.BookId == book.BookId);
