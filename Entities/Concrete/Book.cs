@@ -13,7 +13,7 @@ namespace Entities.Concrete
         public string BookName { get; set; }
         public string Author { get; set; }
         public string Publisher { get; set; }
-        public string YearOfPrinting { get; set; }
+        public DateTime YearOfPrinting { get; set; }
         public int Piece { get; set; }
         public string Description { get; set; }
     }

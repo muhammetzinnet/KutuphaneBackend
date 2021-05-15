@@ -17,11 +17,22 @@ namespace DataAccess.Concrete.İnMemory
         {
             _books = new List<Book>
             {
-                new Book{BookId = 1, CategoryId = 1, KindName = "roman",  BookName = "Serseri", Author = "Aytaç Uzman", Publisher = "Can", YearOfPrinting = "2020", Description = "Roman"},
-                new Book{BookId = 2, CategoryId = 1, KindName = "şiir",  BookName = "Günlük", Author = "Halil Mutlu", Publisher = "Etkin", YearOfPrinting = "2018", Description = "Roman"},
-                new Book{BookId = 3, CategoryId = 2, KindName = "şiir",  BookName = "Yağmur", Author = "Eyüp Halid", Publisher = "Kapa", YearOfPrinting = "2015", Description = "Hikaye"},
-                new Book{BookId = 4, CategoryId = 2, KindName = "tarih",  BookName = "Güz Güneşi", Author = "Sinan Uçar", Publisher = "Can", YearOfPrinting = "2018", Description = "Hikaye"},
-                new Book{BookId = 5, CategoryId = 3, KindName = "tarih",  BookName = "Yakın Tarih", Author = "Mehmet Selim", Publisher = "ithaki", YearOfPrinting = "2019", Description = "Tarih"}
+                new Book
+                {
+                    BookId = 1,
+                    CategoryId = 1,
+                    KindName = "roman",
+                    BookName = "Serseri",
+                    Author = "Aytaç Uzman",
+                    Publisher = "Can",
+                   
+                    Piece = 0,
+                    Description = "Roman"
+                },
+                new Book{BookId = 2, CategoryId = 1, KindName = "şiir",  BookName = "Günlük", Author = "Halil Mutlu", Publisher = "Etkin",  Description = "Roman"},
+                new Book{BookId = 3, CategoryId = 2, KindName = "şiir",  BookName = "Yağmur", Author = "Eyüp Halid", Publisher = "Kapa",  Description = "Hikaye"},
+                new Book{BookId = 4, CategoryId = 2, KindName = "tarih",  BookName = "Güz Güneşi", Author = "Sinan Uçar", Publisher = "Can",  Description = "Hikaye"},
+                new Book{BookId = 5, CategoryId = 3, KindName = "tarih",  BookName = "Yakın Tarih", Author = "Mehmet Selim", Publisher = "ithaki",  Description = "Tarih"}
             };
         }
         public void Add(Book book)
