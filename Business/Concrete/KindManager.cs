@@ -68,9 +68,9 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(KindValidator))]
-        public IDataResult<List<Kind>> GetAllBook()
+        public IDataResult<List<Kind>> GetAllBook(Book book)
         {
-            return new SuccessDataResult<List<Kind>>(_kindDal.GetAll(k => k.KindName == k.CategoryName));
+            return new SuccessDataResult<List<Kind>>(_kindDal.GetAll(k => k.KindId == k.CategoryId));
         }
 
         [ValidationAspect(typeof(KindValidator))]

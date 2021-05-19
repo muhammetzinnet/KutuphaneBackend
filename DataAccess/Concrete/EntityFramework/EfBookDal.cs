@@ -32,7 +32,7 @@ namespace DataAccess.Concrete.EntityFramework
                         YearOfPrinting = b.YearOfPrinting,
                         Piece = b.Piece,
                         Description = b.Description,
-
+                        
 
                     };
                 return result == null ? result.ToList() : result.Where(filter).ToList();

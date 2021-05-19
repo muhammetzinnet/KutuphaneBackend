@@ -10,11 +10,11 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReturnBookController : ControllerBase
+    public class ReturnBooksController : ControllerBase
     {
         private IReturnBookService _returnBookService;
 
-        public ReturnBookController(IReturnBookService returnBookService)
+        public ReturnBooksController(IReturnBookService returnBookService)
         {
             _returnBookService = returnBookService;
         }

@@ -11,7 +11,7 @@ namespace Business.Abstract
     {
         IDataResult<List<Kind>> GetAll();
         IDataResult<List<Kind>> GetAllById(int id);
-        IDataResult<List<Kind>> GetAllBook();
+        IDataResult<List<Kind>> GetAllBook(Book book);
 
         IResult Add(Kind kind);
         IResult Delete(Kind kind);

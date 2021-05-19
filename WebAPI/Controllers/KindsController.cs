@@ -5,25 +5,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Business;
+using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities.Concrete;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LendController : ControllerBase
+    public class KindsController : ControllerBase
     {
-        private ILendService _lendService;
+        IKindService _kindService;
 
-        public LendController(ILendService lendService)
+        public KindsController(IKindService kindService)
         {
-            _lendService = lendService;
+            _kindService = kindService;
         }
+
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _lendService.GetAll();
+            var result = _kindService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("getallbyid")]
+        public IActionResult GetAllById(int id)
+        {
+            var result = _kindService.GetAllById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -35,19 +52,7 @@ namespace WebAPI.Controllers
         [HttpGet("getallbook")]
         public IActionResult GetAllBook(Book book)
         {
-            var result = _lendService.GetAllBook(book);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result.Message);
-        }
-
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int id)
-        {
-            var result = _lendService.GetById(id);
+            var result = _kindService.GetAllBook(book);
             if (result.Success)
             {
                 return Ok(result);
@@ -57,9 +62,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Lend lend)
+        public IActionResult Add(Kind kind)
         {
-            var result = _lendService.Add(lend);
+            var result = _kindService.Add(kind);
             if (result.Success)
             {
                 return Ok(result);
@@ -69,9 +74,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Lend lend)
+        public IActionResult Delete(Kind kind)
         {
-            var result = _lendService.Delete(lend);
+            var result = _kindService.Delete(kind);
             if (result.Success)
             {
                 return Ok(result);
@@ -81,9 +86,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Lend lend)
+        public IActionResult Update(Kind kind)
         {
-            var result = _lendService.Update(lend);
+            var result = _kindService.Update(kind);
             if (result.Success)
             {
                 return Ok(result);

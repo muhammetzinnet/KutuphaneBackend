@@ -12,5 +12,6 @@ namespace Entities.Concrete
         public string UserName { get; set; }
         public DateTime LendDate { get; set; }
         public int LendPeriod { get; set; }
+        
     }
 }

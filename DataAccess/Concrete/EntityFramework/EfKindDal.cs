@@ -19,11 +19,11 @@ namespace DataAccess.Concrete.EntityFramework
             using (var context = new LibraryContext())
             {
                 var result = from k in context.Kinds
-                    join c in context.Categories on k.KindName equals c.CategoryName
+                    join c in context.Categories on k.KindId equals c.CategoryId
                     select new KindDetailDto()
                     {
                         KindId = k.KindId,
-                        CategoryName = c.CategoryName,
+                        CategoryId = c.CategoryId,
                         KindName = k.KindName
                     };
 
