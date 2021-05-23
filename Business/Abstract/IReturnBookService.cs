@@ -11,5 +11,7 @@ namespace Business.Abstract
     {
         IDataResult<List<ReturnBook>> GetAll();
         IDataResult<ReturnBook> GetById(int id);
+        IResult Add(ReturnBook returnBook);
+        IResult Delete(ReturnBook returnBook);
     }
 }

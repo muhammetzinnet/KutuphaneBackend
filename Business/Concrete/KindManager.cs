@@ -24,7 +24,7 @@ namespace Business.Concrete
             _kindDal = kindDal;
         }
 
-        [SecuredOperation("kind.add, admin")]
+        //[SecuredOperation("kind.add, admin")]
         [ValidationAspect(typeof(KindValidator))]
         public IResult Add(Kind kind)
         {

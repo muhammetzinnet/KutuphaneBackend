@@ -48,5 +48,8 @@ namespace Business.Constants
         public static string CustomerDeleted = "Kişi silindi.";
         public static string CustomerUpdated = "Kişi güncellendi";
         public static string CustomerListed = "Kullanıcılar listelendi";
+        internal static string ReturnBookAdd;
+        internal static string ReturnBookDelete;
+        internal static string ReturnBookAlreadyExists;
     }
 }

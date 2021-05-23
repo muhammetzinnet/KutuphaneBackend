@@ -8,6 +8,7 @@ namespace Entities.DTOs
     public class ReturnBookDetailDto : IDto
     {
         public int ReturnBookId { get; set; }
+        public string BookName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int LendPeriod { get; set; }

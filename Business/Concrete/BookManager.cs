@@ -28,7 +28,7 @@ namespace Business.Concrete
             _bookDal = bookDal;
         }
 
-        [SecuredOperation("book.add, admin")]
+        //[SecuredOperation("book.add, admin")]
         [ValidationAspect(typeof(BookValidator))]
         public IResult Add(Book book)
         {

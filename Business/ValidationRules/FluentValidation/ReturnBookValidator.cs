@@ -11,6 +11,7 @@ namespace Business.ValidationRules.FluentValidation
         public ReturnBookValidator()
         {
             RuleFor(r => r.ReturnBookId).NotNull();
+            RuleFor(r => r.BookName).NotNull();
             RuleFor(r => r.FirstName).MinimumLength(3);
             RuleFor(r => r.ReturnDate).NotNull();
 
